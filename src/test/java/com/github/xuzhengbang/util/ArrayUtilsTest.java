@@ -1,5 +1,5 @@
 package com.github.xuzhengbang.util;
 
-public class ArrayTest {
+public class ArrayUtilsTest {
 
 }

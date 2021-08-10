@@ -10,9 +10,18 @@ import org.junit.Test;
  */
 public class StringUtilsTest {
 	
+	
+	@Test
+	public void repeat() {
+		// 字符串重复N次
+		System.out.println(StringUtils.repeat("*", 3));
+		// 字符串重复N次, 并添加分隔符
+		System.out.println(StringUtils.repeat("*", "-", 3));
+	}
 
 	@Test
 	public void equalsAny() {
+		// 字符串eq判断
 		String[] array = { "1", "2", "3"};
 		System.out.println(StringUtils.equalsAny("0", array));
 		System.out.println(StringUtils.equalsAny("1", array));
@@ -27,6 +36,7 @@ public class StringUtilsTest {
 
 	@Test
 	public void blankOrEmptyTest() {
+		// 空值验证
 		String[] array = { null, "", " ", "123", "\r", "\n", "\t", "\f" };
 		for (int i = 0; i < array.length; i++) {
 			String string = array[i];
