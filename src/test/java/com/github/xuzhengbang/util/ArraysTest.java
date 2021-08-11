@@ -4,11 +4,31 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Test;
 
 public class ArraysTest {
-
-	public static void main(String[] args) {
+	
+	@Test
+	public void sort() {
+		Integer[] array = { 1, 3, 5, 2, 4 };
+		Arrays.sort(array);
+		// 对原数组进行排序
+		System.out.println(Arrays.deepToString(array));
+	}
+	
+	
+	/**
+	 * 对Arrays.sort的封装
+	 * {@link org.apache.commons.lang3.ArraySorter#sort(T[]) }
+	 */
+	@Test
+	public void sortClone() {
+		Integer[] array = { 1, 3, 5, 2, 4 };
+		Integer[] clone = ArrayUtils.clone(array);
+		Arrays.sort(clone);
+		System.out.println(Arrays.deepToString(array));
+		System.out.println(Arrays.deepToString(clone));
 	}
 
 	@Test

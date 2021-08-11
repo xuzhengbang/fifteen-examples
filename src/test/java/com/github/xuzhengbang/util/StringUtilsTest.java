@@ -1,7 +1,12 @@
 package com.github.xuzhengbang.util;
 
+import java.util.Collections;
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+
+import com.google.common.collect.Lists;
 
 /**
  * 
@@ -9,6 +14,29 @@ import org.junit.Test;
  *
  */
 public class StringUtilsTest {
+	
+	@Test
+	public void joinTest() {
+		String[] array = {"1", "2", "3"};
+		System.out.println("-join1-");
+		String join1 = StringUtils.join(array);
+		System.out.println(join1);
+		
+		System.out.println("\n-join2-");
+		String join2 = StringUtils.join(array, "#");
+		System.out.println(join2);
+		
+		List<Integer> arrayList = Lists.newArrayList(1, 2, 3);
+		System.out.println("\n-join3-");
+		// 可变参, 集合作为一个元素进行连接, 无分隔符
+		String join3 = StringUtils.join(arrayList);
+		System.out.println(join3);
+		System.out.println("\n-join4-");
+		// 将集合内元素以指定分割符进行连接
+		String join4 = StringUtils.join(arrayList, ",");
+		System.out.println(join4);
+		
+	}
 	
 	
 	@Test
