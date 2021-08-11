@@ -28,7 +28,8 @@ public class StringUtilsTest {
 		
 		List<Integer> arrayList = Lists.newArrayList(1, 2, 3);
 		System.out.println("\n-join3-");
-		// 可变参, 集合作为一个元素进行连接, 无分隔符
+		// 可变参, 无分隔符
+		// 此时集合仅为一个元素
 		String join3 = StringUtils.join(arrayList);
 		System.out.println(join3);
 		System.out.println("\n-join4-");
