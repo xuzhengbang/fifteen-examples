@@ -62,7 +62,7 @@ public class ArraysTest {
 
 	@Test
 	public void AsListOperation2() {
-		// 解决Arrays.asList()生成的List无法操作的文件的问题
+		// 解决Arrays.asList()生成的List无法操作元素的问题
 		Integer[] array = { 1, 2, 3, 4, 5 };
 		List<Integer> list = Arrays.asList(array);
 		ArrayList<Integer> arrayList = new ArrayList<Integer>(list);
