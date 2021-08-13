@@ -8,6 +8,13 @@ import org.junit.Test;
 
 public class StreamTest {
 	
+	@Test
+	public void count() {
+		Integer[] array = { 1, 2, 3, 4, 5 };
+		long count = Stream.of(array).count();
+		System.out.println(count);
+	}
+	
 	
 	@Test
 	public void array() {
@@ -17,5 +24,5 @@ public class StreamTest {
 		collect.add(6);
 		System.out.println(collect);
 	}
-
+	
 }
