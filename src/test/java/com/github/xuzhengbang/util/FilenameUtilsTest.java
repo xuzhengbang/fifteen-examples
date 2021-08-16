@@ -4,7 +4,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
-public class FilenameTest {
+public class FilenameUtilsTest {
 	
 	@Test
 	public void filenameTest() {
