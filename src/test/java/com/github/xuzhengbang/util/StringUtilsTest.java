@@ -1,6 +1,5 @@
 package com.github.xuzhengbang.util;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -15,6 +14,14 @@ import com.google.common.collect.Lists;
  */
 public class StringUtilsTest {
 	
+	
+	/**
+	 * {@link com.github.xuzhengbang.util.StringJoinerTest#merge1test()}
+	 * 
+	 * {@link com.github.xuzhengbang.util.StringJoinerTest#merge2test()}
+	 * 
+	 * {@link com.github.xuzhengbang.util.StringTest#joinTest()}
+	 */
 	@Test
 	public void joinTest() {
 		String[] array = {"1", "2", "3"};
@@ -37,6 +44,17 @@ public class StringUtilsTest {
 		String join4 = StringUtils.join(arrayList, ",");
 		System.out.println(join4);
 		
+	}
+	
+	
+	/**
+	 * {@link com.github.xuzhengbang.util.StringTest.replaceTest()}
+	 */
+	@Test
+	public void replaceTest() {
+		ConsoleUtils.println("StringUtils.replaceChars(\"123456\", \"222\", \"abc\")", StringUtils.replaceChars("123456", "222", "abc"));
+		ConsoleUtils.println("StringUtils.replace(\"123456\", \"222\", \"abc\")", StringUtils.replace("123456", "222", "abc"));
+		ConsoleUtils.println("StringUtils.replace(\"12223456\", \"222\", \"abc\")", StringUtils.replace("12223456", "222", "abc"));
 	}
 	
 	

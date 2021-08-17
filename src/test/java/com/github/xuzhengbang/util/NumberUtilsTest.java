@@ -11,7 +11,7 @@ public class NumberUtilsTest {
 	public void isNumberTest() {
 		NumberUtils.isNumber("1");
 	}
-
+	
 	@Test
 	public void isCreatableTest() {
 		// 检查字符串是否为有效的Java数字, 包含科学计数法、十六进制数字、八进制数字和用类型限定符标记的数字（例如123L）
@@ -24,7 +24,7 @@ public class NumberUtilsTest {
 		ConsoleUtils.println("NumberUtils.isCreatable(\"1L\")", NumberUtils.isCreatable("1L"));
 		// Console_> true
 		ConsoleUtils.println("NumberUtils.isCreatable(\"1D\")", NumberUtils.isCreatable("1D"));
-		// Console_> true
+		// Console_> true 
 		ConsoleUtils.println("NumberUtils.isCreatable(\"0xA\")", NumberUtils.isCreatable("0xA"));
 		// Console_> true
 		ConsoleUtils.println("NumberUtils.isCreatable(\"0xG\")", NumberUtils.isCreatable("0xG"));
