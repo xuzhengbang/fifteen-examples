@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import org.junit.Test;
 
 public class FilesTest {
@@ -56,7 +57,44 @@ public class FilesTest {
 	}
 
 	@Test
-	public void walk() {
+	public void delete() {
+		try {
+			clear();
+			Path deleteIfExistsPath = Files.createFile(BASE_PATH.resolve("deleteIfExists.txt"));
+			Files.write(deleteIfExistsPath, "deleteIfExists".getBytes());
+			ConsoleUtils.println("Files.deleteIfExists(deleteIfExistsPath)", Files.deleteIfExists(deleteIfExistsPath));
+
+			Path deletePath = Files.createFile(BASE_PATH.resolve("delete.txt"));
+			Files.write(deletePath, "delete".getBytes());
+			Files.delete(deletePath);
+			ConsoleUtils.println("Files.delete(deletePath)", "OK");
+
+			ConsoleUtils.println("Files.deleteIfExists(deletePath)", Files.deleteIfExists(deletePath));
+			try {
+				Files.delete(deleteIfExistsPath);
+			} catch (Exception e) {
+				ConsoleUtils.println("Files.delete(deleteIfExistsPath)",
+						e.getClass().getName() + " : " + e.getMessage());
+			}
+			Path createDirectory = Files.createDirectory(BASE_PATH.resolve("DELETE_DIRECTORY"));
+			Path directoryInPath = Files.createFile(createDirectory.resolve("DIRECTORY_IN.txt"));
+			try {
+				Files.delete(createDirectory);
+			} catch (Exception e) {
+				ConsoleUtils.println("Files.delete(createDirectory)",
+						e.getClass().getName() + " : " + e.getMessage());
+			}
+			Files.delete(directoryInPath);
+			ConsoleUtils.println("Files.delete(directoryInPath)", directoryInPath, "OK");
+			Files.delete(createDirectory);
+			ConsoleUtils.println("Files.delete(createDirectory)", createDirectory, "OK");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void clear() {
 		try {
 			List<Path> collect = Files.walk(BASE_PATH) //
 					.filter(item -> item.compareTo(BASE_PATH) != 0) //
@@ -75,29 +113,24 @@ public class FilesTest {
 			e.printStackTrace();
 		}
 	}
-
+	
+	
 	@Test
-	public void delete() {
-		try {
-			Path deleteIfExistsPath = Files.createFile(BASE_PATH.resolve("deleteIfExists.txt"));
-			Files.write(deleteIfExistsPath, "deleteIfExists".getBytes());
-			ConsoleUtils.println("Files.deleteIfExists(deleteIfExistsPath)", Files.deleteIfExists(deleteIfExistsPath));
-
-			Path deletePath = Files.createFile(BASE_PATH.resolve("delete.txt"));
-			Files.write(deletePath, "delete".getBytes());
-			Files.delete(deletePath);
-			ConsoleUtils.println("Files.delete(deletePath)", "OK");
-
-			ConsoleUtils.println("Files.deleteIfExists(deletePath)", Files.deleteIfExists(deletePath));
-			try {
-				Files.delete(deleteIfExistsPath);
-			} catch (Exception e) {
-				ConsoleUtils.println("Files.delete(deleteIfExistsPath)",
-						e.getClass().getName() + " : " + e.getMessage());
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public void other() {
+		// 判断是否存在
+		ConsoleUtils.println("Files.exists(BASE_PATH)", Files.exists(BASE_PATH));
+		// Console_> true
+		// -
+		// 判断是否不存在
+		ConsoleUtils.println("Files.notExists(BASE_PATH)", Files.notExists(BASE_PATH));
+		// Console_> false
+		// -
+		// 判断是否是文件夹
+		ConsoleUtils.println("Files.isDirectory(BASE_PATH)", Files.isDirectory(BASE_PATH));
+		// Console_> true
+		// -
+		// 判断是否是文件
+		ConsoleUtils.println("Files.isRegularFile(BASE_PATH)", Files.isRegularFile(BASE_PATH));
+		// Console_> false
 	}
-
 }

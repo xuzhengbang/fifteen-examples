@@ -10,4 +10,13 @@ public class ConsoleUtils {
 		stringJoiner.add(String.valueOf(object));
 		System.out.println(stringJoiner);
 	}
+	
+	public static void println(String prefix, Object...objects) {
+		StringJoiner stringJoiner = new StringJoiner(" -> ");
+		stringJoiner.add(prefix);
+		for (Object object : objects) {
+			stringJoiner.add(String.valueOf(object));
+		}
+		System.out.println(stringJoiner);
+	}
 }

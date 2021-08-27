@@ -47,7 +47,7 @@ public class GoogleCollectTest {
 
 	}
 
-	public void test() {
+	public void other() {
 		Map<Object, Object> hashMap = Maps.newHashMap();
 		Map<Object, Object> linkedHashMap = Maps.newLinkedHashMap();
 		Set<Object> hashSet = Sets.newHashSet();
